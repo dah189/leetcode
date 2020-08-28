@@ -1,16 +1,13 @@
 class Solution {
     public ListNode deleteNodes(ListNode head, int m, int n) {
-        ListNode prev = new ListNode(0,head), cur;
-        while(prev.next != null){
-            
+        ListNode cur = head, prev;
+        while(cur != null){        
             int i = 0;
-            while(prev != null && i++ < m){
-                prev = prev.next;
+            while(cur != null && i++ < m){
+                prev = cur;
+                cur = cur.next;
             }
-            if(prev == null){
-                break;
-            }
-            cur = prev;
+
             i = 0;
             while(cur != null && i++ <= n){
                 cur = cur.next;
